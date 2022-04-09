@@ -1,0 +1,12 @@
+.mini{
+  background-color: bisque;
+  width: 30%;
+  height: 20vh;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.main{
+  width: 100%;
+  display: flex;
+  margin-left: 25px;
+}

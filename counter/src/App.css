@@ -1,0 +1,20 @@
+.main_div{
+  background-color: antiquewhite;
+  width: 25%;
+  height: 30vh;
+  border-radius: 15px;
+  box-shadow: 5px 5px 25px -5px
+}
+
+.center_div{
+  background-color: rgb(36, 125, 203);
+}
+.btn_div{
+ display: flex;
+ flex-direction: row;
+  background-color: blueviolet;
+}
+
+button:hover{
+  background-color: burlywood
+}
