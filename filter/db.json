@@ -1,0 +1,26 @@
+{
+
+  "data":
+    [
+      {"id":1,"first_name":"Aube","last_name":"Grieswood","email":"agrieswood0@washington.edu","gender":"Male","ip_address":"113.200.8.149"},
+      {"id":2,"first_name":"Giuseppe","last_name":"Varnam","email":"gvarnam1@weather.com","gender":"Male","ip_address":"160.144.55.151"},
+      {"id":3,"first_name":"Augustin","last_name":"Klebes","email":"aklebes2@drupal.org","gender":"Non-binary","ip_address":"158.144.33.111"},
+      {"id":4,"first_name":"Benito","last_name":"Newsham","email":"bnewsham3@mapy.cz","gender":"Male","ip_address":"184.133.35.18"},
+      {"id":5,"first_name":"Lindy","last_name":"Mugglestone","email":"lmugglestone4@aol.com","gender":"Female","ip_address":"62.13.8.63"},
+      {"id":6,"first_name":"Caria","last_name":"Readings","email":"creadings5@auda.org.au","gender":"Polygender","ip_address":"100.216.55.10"},
+      {"id":7,"first_name":"Lambert","last_name":"Rankmore","email":"lrankmore6@pbs.org","gender":"Male","ip_address":"98.88.225.183"},
+      {"id":8,"first_name":"Bobbe","last_name":"Bullent","email":"bbullent7@shutterfly.com","gender":"Female","ip_address":"198.123.60.74"},
+      {"id":9,"first_name":"Giffie","last_name":"Brown","email":"gbrown8@odnoklassniki.ru","gender":"Male","ip_address":"250.52.155.93"},
+      {"id":10,"first_name":"Town","last_name":"Houdmont","email":"thoudmont9@pen.io","gender":"Male","ip_address":"240.41.89.113"},
+      {"id":11,"first_name":"Diena","last_name":"McRill","email":"dmcrilla@amazonaws.com","gender":"Non-binary","ip_address":"74.184.36.255"},
+      {"id":12,"first_name":"Fae","last_name":"Scroggins","email":"fscrogginsb@typepad.com","gender":"Genderfluid","ip_address":"116.243.99.187"},
+      {"id":13,"first_name":"Shellie","last_name":"Hefferon","email":"shefferonc@amazon.de","gender":"Female","ip_address":"117.127.2.111"},
+      {"id":14,"first_name":"Talia","last_name":"Nuscha","email":"tnuschad@independent.co.uk","gender":"Female","ip_address":"209.13.224.181"},
+      {"id":15,"first_name":"Alvie","last_name":"Bingell","email":"abingelle@thetimes.co.uk","gender":"Genderfluid","ip_address":"118.84.50.100"},
+      {"id":100,"first_name":"Aldin","last_name":"Clowney","email":"aclowney2r@mayoclinic.com","gender":"Male","ip_address":"0.157.142.189"}
+    ]
+
+  }
+
+
+

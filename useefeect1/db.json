@@ -1,0 +1,44 @@
+{
+  "todos": [
+    {
+      "task": "react",
+      "status": false,
+      "id": 1
+    },
+    {
+      "task": "java",
+      "status": false,
+      "id": 2
+    },
+    {
+      "task": "html",
+      "status": false,
+      "id": 3
+    },
+    {
+      "task": "kashmir",
+      "status": false,
+      "id": 4
+    },
+    {
+      "task": "css",
+      "status": false,
+      "id": 5
+    },
+    {
+      "task": "node js",
+      "status": false,
+      "id": 6
+    },
+    {
+      "task": "vue",
+      "status": false,
+      "id": 7
+    },
+    {
+      "task": "angular",
+      "status": false,
+      "id": 8
+    }
+  ]
+}

@@ -3,11 +3,18 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import {ThemeContextProvider} from "./context/ThemeContext"
+import {CartContextProvider} from "./context/Cart"
 ReactDOM.render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+   <ThemeContextProvider>
+     <CartContextProvider>
+      <App />
+      </CartContextProvider>
+    </ThemeContextProvider>
+  </React.StrictMode>
+
+ ,
   document.getElementById('root')
 );
 
