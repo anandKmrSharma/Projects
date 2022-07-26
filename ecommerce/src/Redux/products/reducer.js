@@ -9,7 +9,7 @@ const initialState={
 
 }
 
-const productsReducer=(state=initialState, action)=>{
+const productReducer=(state=initialState, action)=>{
      
     const {type, payload}= action;
 
@@ -59,4 +59,4 @@ const productsReducer=(state=initialState, action)=>{
     }
 
 }
-export {productsReducer}
+export {productReducer}
