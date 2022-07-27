@@ -27,7 +27,7 @@ import { FiShoppingCart } from 'react-icons/fi';
   import {StarIcon} from "@chakra-ui/icons"
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getSingleProduct } from "../Redux/products/action";
+import { addProductCart, getSingleProduct } from "../Redux/products/action";
  
 
 const Product= ()=>{
@@ -42,6 +42,13 @@ const Product= ()=>{
     dispatch(getSingleProduct(id))
   }
  },[dispatch, id])
+
+
+const addToCartHandler= ()=>{
+  currentProduct && dispatch(addProductCart(currentProduct))
+}
+
+
  console.log("current", currentProduct);
  console.log("price", currentProduct.price);
  console.log("rating", currentProduct.rating);
@@ -50,7 +57,7 @@ const Product= ()=>{
 
     return <>
 
-    <h3>single product : {id}</h3>
+    <h3>single product : {id}</h3> 
 
       <Container maxW={'7xl'}>
         <SimpleGrid
@@ -147,7 +154,11 @@ const Product= ()=>{
               _hover={{
                 transform: 'translateY(2px)',
                 boxShadow: 'lg',
-              }}>
+              }}
+
+              onClick={addToCartHandler}
+              
+              >
               Add to cart
             </Button>
   

@@ -22,6 +22,7 @@ import {
     ChevronDownIcon,
     ChevronRightIcon,
   } from '@chakra-ui/icons';
+import { Profile } from "./Profile";
   
 const Navbar= ()=>{
     return <>
@@ -65,7 +66,7 @@ const Navbar= ()=>{
           justify={'flex-end'}
           direction={'row'}
           spacing={6}>
-          
+          <Profile/>
         </Stack>
       </Flex>
 

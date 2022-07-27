@@ -43,21 +43,21 @@ const fetchData=(payload)=>{
 const getSingleProductRequest = (payload)=>{
     return {
        type: types.GET_SINGLE_PRODUCT_REQUEST,
-       payload
+       payload,
     }
 }
 
 const getSingleProductSuccess= (payload)=>{
    return {
       type: types.GET_SINGLE_PRODUCT_SUCCESS,
-      payload
+      payload,
    }
 }
 
 const getSingleProductFailure = (payload)=>{
    return {
       type: types.GET_SINGLE_PRODUCT_FAILURE,
-      payload
+      payload,
    }
 }
 
@@ -72,4 +72,40 @@ Axios.get(`/products/${id}`)
 
 
 
-export {fetchData, getSingleProduct}
+
+const addProductCartRequest = (payload)=>{
+   return {
+      type: types.ADD_PRODUCT_CART_REQUEST,
+      payload,
+   }
+}
+
+const addProductCartSuccess= (payload)=>{
+  return {
+     type: types.ADD_PRODUCT_CART_SUCCESS,
+     payload,
+  }
+}
+
+const addProductCartFailure = (payload)=>{
+  return {
+     type: types.ADD_PRODUCT_CART_FAILURE,
+     payload,
+  }
+}
+
+
+const addProductCart= (product)=> dispatch =>{
+   dispatch(addProductCartRequest())
+   Axios.post('/cart',product).then(r=> dispatch(addProductCartSuccess(r.data)))
+              .catch(e=> dispatch(addProductCartFailure(e.data)))
+}
+
+
+
+
+
+
+
+
+export {fetchData, getSingleProduct, addProductCart}

@@ -39,7 +39,7 @@ const [searchParams]= useSearchParams();
     category:searchParams.getAll('category')
    }
 
-      dispatch(fetchData(params));
+      dispatch(fetchData());
     }
   }, [dispatch, products?.length], searchParams);
   console.log("products", products);
@@ -48,7 +48,7 @@ const [searchParams]= useSearchParams();
     <>
       <Box>
         <Stack display={{ md: "flex" }} flexDirection={{ md: "row" }}>
-          <Box>
+          <Box minWidth="15rem">
             <FilterComponent />
           </Box>
           <Box>
