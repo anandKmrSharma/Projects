@@ -1,10 +1,9 @@
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
 import { Box, Text } from "@chakra-ui/react";
-
+import { fetchData } from "../Redux/products/action";
 import {useSearchParams} from "react-router-dom"
-
-
+import { useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
 import {
     Menu,
     MenuButton,
@@ -16,6 +15,9 @@ import {
     Flex,
     MenuOptionGroup,
     MenuDivider, 
+    Checkbox,
+    VStack,
+    CheckboxGroup
   } from "@chakra-ui/react";
 
 const FilterComponent = () => {
@@ -23,23 +25,22 @@ const FilterComponent = () => {
     const [searchParams, setSearchParams]= useSearchParams();
     console.log("serach", searchParams)
 
-
+const dispatch= useDispatch();
   const [categoryValues, setCategoryValues] = useState(
-    searchParams.getAll("category") || []
-  );
+    searchParams.getAll("category") || []);
 
 
-  const categoryHandler = (value) => {
-    console.log("working", value);
-    setCategoryValues(value);
+  const categoryHandler = (values) => {
+    console.log("working", values);
+    setCategoryValues(values);
   };
 
 
   useEffect(()=>{
     if(categoryValues){
-      setSearchParams({category: categoryValues})
+      setSearchParams({category: categoryValues});
       let params= {
-        category: searchParams.getAll("category")
+        category: searchParams.getAll('category')
       }
              dispatch(fetchData(params))
     }
