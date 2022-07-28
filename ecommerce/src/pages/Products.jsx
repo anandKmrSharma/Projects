@@ -28,6 +28,7 @@ import {
 import { ProductTemplate } from "./ProductTemplate";
 const Products = () => {
   const products = useSelector((store) => store.ecommerceData.products);
+  console.log("products", products);
 const [searchParams]= useSearchParams();
   // for storing the change value
 

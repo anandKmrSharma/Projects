@@ -89,7 +89,7 @@ const addToCartHandler= ()=>{
                 color={useColorModeValue('gray.900', 'gray.400')}
                 fontWeight={300}
                 fontSize={'2xl'}>
-                                {currentProduct.price}
+              {currentProduct.price}
                                 
 
 

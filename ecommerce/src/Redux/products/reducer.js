@@ -75,6 +75,27 @@ const productReducer=(state=initialState, action)=>{
         
                                  }
 
+                                 case types.FETCH_CART_REQUEST:
+                            return{
+                                    ...state,
+                                    error:"",
+                                    loading: true,
+                            }
+                            case types.FETCH_CART_SUCCESS:
+                             return{
+                                 ...state,
+                                 cart:[...payload],
+                                 loading: false,
+                             }
+                             case types.FETCH_CART_FAILURE:
+                                 return{
+                                     ...state,
+                                     error: payload,
+                                 loading: false,
+        
+                                 }
+
+
 
 
 
