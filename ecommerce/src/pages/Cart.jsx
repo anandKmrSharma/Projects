@@ -3,16 +3,25 @@ import React from "react";
 import { Box, Heading, Stack, Image, Text, useColorModeValue, Button } from "@chakra-ui/react";
 import {DeleteIcon} from "@chakra-ui/icons"
 import { useSelector } from "react-redux";
-
+import { useDispatch } from "react-redux";
+import { deleteProductCart } from "../Redux/products/action";
+import { useEffect } from "react";
+import{Checkout} from "../components/Checkout"
 const Cart = () => {
+const dispatch= useDispatch();
 
+    const removeProduct=(id)=>{
+        dispatch(deleteProductCart(id))
+        console.log("going to remove id", id);
+    }
 
+    
+   
     const cart= useSelector(store=> store.ecommerceData.cart);
 
-
-console.log("cart", cart)
   return (
     <>
+
       <Box>
         <Heading as="h2" size="xl" textAlign="center">
           cart
@@ -20,42 +29,30 @@ console.log("cart", cart)
 
       {cart?.length && cart.map((product)=>(
 
-             <CartItem title={product.title} description={product.description}
-              price={product.price} image={product.image}
+             <CartItem title={product.title} 
+             id={product.id}
+             key={product.id}
+             description={product.description}
+              price={product.price} 
+              image={product.image}
+              removeProduct={removeProduct}
              />
       ))}
         
         
-        <Button
-              rounded={'none'}
-              w={'full'}
-              mt={8}
-              size={'lg'}
-              py={'7'}
-              bg={useColorModeValue('gray.900', 'gray.50')}
-              color={useColorModeValue('white', 'gray.900')}
-              textTransform={'uppercase'}
-              _hover={{
-                transform: 'translateY(2px)',
-                boxShadow: 'lg',
-              }}
-              
-              >
-              checkout
-            </Button>
+        <Checkout cart={cart}/>
       </Box>
     </>
   );
 
-  function CartItem({title,image,description,price}) {
+  function CartItem({title,id,removeProduct,image,description,price}) {
     return (
-
-        
       <Box
         border={"1px solid red"}
         rounded="lg"
         width="fit-content"
         margin={"auto"}
+        marginBottom={"2rem"}
       >
         <Stack
           direction={{ base: "column", md: "row" }}
@@ -107,7 +104,10 @@ console.log("cart", cart)
                    fontSize={'2xl'}>
                    {price}
                   </Text>
-                  <Button variant={"solid"} leftIcon={<DeleteIcon/>}>delete</Button>
+                  <Button variant={"solid"} leftIcon={<DeleteIcon/>}
+                  
+                  onClick={()=>removeProduct(id)}
+                  >remove</Button>
 
             </Stack>
           </Box>
@@ -116,5 +116,6 @@ console.log("cart", cart)
       
     );
   }
+
 };
 export { Cart };

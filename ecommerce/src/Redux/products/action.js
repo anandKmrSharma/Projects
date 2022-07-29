@@ -163,12 +163,33 @@ const deleteProductCartFailure = (payload)=>{
 const deleteProductCart= (id)=> dispatch=> {
     dispatch(deleteProductCartRequest())
     Axios.delete(`/cart/${id}`)
-    .then(r=> dispatch(deleteProductCartSuccess(r.data)))
+    .then(r=>{
+      dispatch(deleteProductCartSuccess(r.data))
+    })
+    .then(()=>{dispatch(fetchCart())})
     .catch(e=> dispatch(deleteProductCartFailure(e.data)))
 }
 
 
+const addOrderRequest=()=>{
+  return{
+   type: types.ADD_ORDER_REQUEST,
+  }
+}
 
+const addOrderSuccess= (payload)=>{
+   return{
+      type:types.ADD_ORDER_SUCCESS,
+      payload,
+   };
+}
+
+const addOrderFailure= (payload)=>{
+   return{
+      type:types.ADD_ORDER_FAILURE,
+      payload,
+   };
+}
 
 
 
