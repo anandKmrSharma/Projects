@@ -166,7 +166,7 @@ const deleteProductCart= (id)=> dispatch=> {
     .then(r=>{
       dispatch(deleteProductCartSuccess(r.data))
     })
-    .then(()=>{dispatch(fetchCart())})
+    .then(()=>dispatch(fetchCart()))
     .catch(e=> dispatch(deleteProductCartFailure(e.data)))
 }
 
@@ -192,6 +192,95 @@ const addOrderFailure= (payload)=>{
 }
 
 
+const addOrder=(payload)=>(dispatch)=>{
+   dispatch(addOrderRequest());
+   
+    const orderPayload=[];
+
+    for(let product of payload){
+        
+      product && orderPayload.push(Axios.post('/orders', product))
+    }
+
+
+    Promise.all(orderPayload)
+    .then((r)=>
+    {
+      console.log(r);
+      dispatch(addOrderSuccess())
+   })
+   .then(()=> dispatch(emptyCart(payload)))
+    .catch((e)=> dispatch(addOrderFailure())) 
+}
+
+
+
+
+const emptyCartRequest=()=>{
+   return{
+      type: types.EMPTY_CART_REQUEST,
+   }
+}
+
+const emptyCartSuccess=()=>{
+   return{
+      type: types.EMPTY_CART_SUCCESS,
+   }
+}
+
+const emptyCartFailure=()=>{
+   return{
+      type: types.EMPTY_CART_FAILURE,
+   }
+}
+
+const emptyCart=(payload)=> (dispatch)=>{
+      dispatch(emptyCartRequest())
+      const deleteOrders=[];
+      for(let obj of payload){
+         let temp=dispatch(deleteProductCart(obj.id))
+           deleteOrders.push(temp);
+      }
+
+      Promise.all(deleteOrders)
+      .then(res=> dispatch(emptyCartSuccess()))
+      .catch(e=> dispatch(emptyCartFailure(e.data)))
+}
+
+
+
+
+
+
+
+const fetchOrdersRequest = (payload)=>{
+   return {
+      type: types.FETCH_ORDERS_REQUEST,
+      payload,
+   }
+}
+
+const fetchOrdersSuccess= (payload)=>{
+  return {
+     type: types.FETCH_ORDERS_SUCCESS,
+     payload,
+  }
+}
+
+const fetchOrdersFailure = (payload)=>{
+  return {
+     type: types.FETCH_ORDERS_FAILURE,
+     payload,
+  }
+}
+
+
+const fetchOrders= (payload)=> dispatch=>{
+   dispatch(fetchOrdersRequest())
+   Axios.get('/orders')
+      .then(r=> dispatch(fetchOrdersSuccess(r.data)))
+      .catch(e=> dispatch(fetchOrdersFailure(e.data)))
+}
 
 
 
@@ -200,4 +289,14 @@ const addOrderFailure= (payload)=>{
 
 
 
-export {fetchData, getSingleProduct, addProductCart, fetchCart, deleteProductCart}
+
+
+export {fetchData, 
+   getSingleProduct, 
+   addProductCart, 
+   fetchCart, 
+   deleteProductCart,
+   addOrder,
+   emptyCart,
+   fetchOrders
+}

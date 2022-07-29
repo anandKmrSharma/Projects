@@ -25,6 +25,8 @@ const Profile = () => {
           </MenuButton>
           <MenuList>
           <MenuItem>cart</MenuItem>
+          <MenuItem>your orders</MenuItem>
+
             
             <MenuItem>Log in</MenuItem>
             <MenuItem>Log out</MenuItem>

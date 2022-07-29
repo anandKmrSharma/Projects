@@ -4,20 +4,24 @@ import { Box, Heading, Stack, Image, Text, useColorModeValue, Button } from "@ch
 import {DeleteIcon} from "@chakra-ui/icons"
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { deleteProductCart } from "../Redux/products/action";
+import { deleteProductCart,addOrder } from "../Redux/products/action";
 import { useEffect } from "react";
+
 import{Checkout} from "../components/Checkout"
 const Cart = () => {
 const dispatch= useDispatch();
+const cart= useSelector(store=> store.ecommerceData.cart);
+
 
     const removeProduct=(id)=>{
         dispatch(deleteProductCart(id))
         console.log("going to remove id", id);
     }
 
-    
+    const checkoutHandler=()=>{
+      dispatch(addOrder(cart))
+    }
    
-    const cart= useSelector(store=> store.ecommerceData.cart);
 
   return (
     <>
@@ -40,7 +44,7 @@ const dispatch= useDispatch();
       ))}
         
         
-        <Checkout cart={cart}/>
+        <Checkout cart={cart} checkoutHandler={checkoutHandler}/>
       </Box>
     </>
   );

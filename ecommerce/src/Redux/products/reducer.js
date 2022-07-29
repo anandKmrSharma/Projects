@@ -6,7 +6,8 @@ const initialState={
     error : '',
     currentProduct: {},
     loading: false,
-    cart:[]
+    cart:[],
+    orders:[]
 
 }
 
@@ -14,7 +15,7 @@ const productReducer=(state=initialState, action)=>{
      
     const {type, payload}= action;
 
-    switch(type){
+    switch(type){ 
 
            case types.FETCH_DATA_REQUEST:
            return{
@@ -107,6 +108,25 @@ const productReducer=(state=initialState, action)=>{
                                         loading: false,
                
                                         };
+
+                                        case types.FETCH_ORDERS_REQUEST:
+                                            return{
+                                                    ...state,
+                                                    error:"",
+                                                    loading: true,
+                                            };
+                                            case types.FETCH_ORDERS_SUCCESS:
+                                             return{
+                                                 ...state,
+                                                 orders:[...payload],
+                                                 loading: false,
+                                             };
+                                             case types.FETCH_ORDERS_FAILURE:
+                                                 return{
+                                                     ...state,
+                                                     error: payload,
+                                                 loading: false,
+                                                 }
 
 
 

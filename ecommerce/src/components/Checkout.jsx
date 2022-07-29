@@ -16,7 +16,7 @@ import {
   Text
 } from "@chakra-ui/react";
 
-const Checkout = ({ cart }) => {
+const Checkout = ({ cart, checkoutHandler }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
@@ -70,7 +70,7 @@ const Checkout = ({ cart }) => {
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
+            <Button colorScheme="blue" mr={3} onClick={checkoutHandler}>
               Confirm
             </Button>
            
