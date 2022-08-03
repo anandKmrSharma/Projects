@@ -7,6 +7,8 @@ import { Box, Heading, Text, Stack, Image, Center, useColorModeValue} from "@cha
 
 const ProductSimple=({image,price,title})=> {
     return (
+
+      
       <Center py={12}>
         <Box
           role={'group'}

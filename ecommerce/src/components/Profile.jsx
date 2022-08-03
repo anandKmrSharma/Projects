@@ -6,7 +6,9 @@ import {
     MenuItem,
     Button,
     Flex,
-    Avatar
+    Avatar,
+    Box,
+    Link
 
   } from '@chakra-ui/react'
 const Profile = () => {
@@ -23,8 +25,11 @@ const Profile = () => {
           >
           <Avatar name='Dan Abrahmov' src='https://bit.ly/dan-abramov' />
           </MenuButton>
-          <MenuList>
+          <MenuList zIndex={10000}>
           <MenuItem>cart</MenuItem>
+
+  
+          
           <MenuItem>your orders</MenuItem>
 
             

@@ -73,6 +73,9 @@ const Navbar = () => {
               <Icon as={BsCartFill} boxSize="2rem" />
             </Box>
             </Link>
+            <Link as={RouterLink} to ="/products">
+            <Box>products</Box>
+            </Link>
 
             <Profile />
           </Stack>

@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Checkbox, CheckboxGroup, VStack} from "@chakra-ui/react";
 import { useEffect } from "react";
 import { fetchData } from "../Redux/products/action";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import {
   Menu,
   MenuButton,
@@ -24,6 +24,9 @@ import {
   useColorModeValue,
   Image,
 } from "@chakra-ui/react";
+import{Link as RouterLink} from 'react-router-dom'
+
+import { useNavigate } from "react-router-dom";
 
 import { ProductTemplate } from "./ProductTemplate";
 import { ProductSimple } from "../components/ProductSimple";
@@ -46,6 +49,13 @@ const [searchParams]= useSearchParams();
   }, [dispatch, products?.length], searchParams);
   console.log("products", products);
 
+
+  const navigate= useNavigate();
+  const navigateProduct=(id)=>{
+    console.log("working navigate", id)
+    navigate(`/products/${id}`)
+  }
+
   return (
     <>
       <Box>
@@ -58,13 +68,19 @@ const [searchParams]= useSearchParams();
             <Flex flexWrap="wrap" justifyContent="space-around">
               {products.map((product) => {
                 return (
+                   
+            //  <Link as={RouterLink} to='/products/'>
+            <Box onClick={()=>{navigateProduct(product.id)}}>
                   <ProductSimple
                     key={product.id}
                     image={product.image}
                     title={product.title}
                     price={product.price}
                   />
+                     
+                      </Box>
                 );
+                
               })}
             </Flex>
           </Box>
